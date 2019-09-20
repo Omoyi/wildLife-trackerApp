@@ -1,0 +1,101 @@
+<div class="well">
+  <h1 class="text-center">Wildlife Tracker</h1>
+  <div class="row">
+    <div class="col-md-4">
+      <h3>Step 1: Check current list of tracked animals.</h3>
+      <hr>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th><h4>Endangered Animals</h4></th>
+          </tr>
+        </thead>
+        <tbody>
+          #foreach($endangeredAnimal in $endageredAnimals)
+            <tr>
+              <td><a href="/animals/$endangeredAnimal.getId()">$endangeredAnimal.getName()</a></td>
+            </tr>
+          #end
+        </tbody>
+      </table>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th><h4>Other Animals</h4></th>
+          </tr>
+        </thead>
+        <tbody>
+          #foreach($normalAnimal in $normalAnimals)
+            <tr>
+              <td><a href="/animals/$normalAnimal.getId()">$normalAnimal.getName()</a></td>
+            </tr>
+          #end
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-4">
+      <h3>Step 2: Add a new animal if you don't see it in the list.</h3>
+      <hr>
+      <h4>New Endangered Animal</h4>
+      <form action='/animals/new-endangered' method='post'>
+        <div class="form-group">
+          <label for="animal-name">Enter the animal name:</label>
+          <input id="animal-name" name="animal-name" class="form-control" type="text">
+        </div>
+        <div class="form-group">
+          <label for="animal-health">How healthy was the animal?</label>
+          <select id='animal-health' name='animal-health' type='text' class="form-control">
+            <option value="Healthy">Healthy</option>
+            <option value="Okay">Okay</option>
+            <option value="Ill">Ill</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="animal-age">About how old was the animal?</label>
+          <select id='animal-age' name='animal-age' type='text' class="form-control">
+            <option value="Newborn">Newborn</option>
+            <option value="Young">Young</option>
+            <option value="Adult">Adult</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Add animal</button>
+      </form>
+      <h4 class="text-center">&mdash; OR &mdash;</h4>
+      <h4>New Animal (Not Endangered)</h4>
+      <form action='/animals/new' method='post'>
+        <div class="form-group">
+          <label for="animal-name">Enter the animal name:</label>
+          <input id="animal-name" name="animal-name" class="form-control" type="text">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Add animal</button>
+      </form>
+    </div>
+    <div class="col-md-4">
+      <h3>Step 3: Add a new sighting.</h3>
+      <hr>
+      <form action='/animals/sighting-animal-id/sightings/new' method='post'>
+        <div class="form-group">
+          <label for="sighting-ranger">Enter your name:</label>
+          <input id="sighting-ranger" name="sighting-ranger" class="form-control" type="text">
+        </div>
+
+        <div class="form-group">
+          <label for="sighting-animal-id">Select the animal that was spotted.</label>
+          <select id='sighting-animal-id' name='sighting-animal-id' type='text' class="form-control">
+            #foreach($animal in $animals)
+              <option value="$animal.getId()">$animal.getName()</option>
+            #end
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="sighting-location">Enter the location where you spotted the animal.</label>
+          <input id="sighting-location" name="sighting-location" class="form-control" type="text">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Add sighting</button>
+      </form>
+    </div>
+  </div>
+</div>
