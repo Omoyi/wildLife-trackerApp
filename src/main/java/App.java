@@ -1,6 +1,7 @@
 import java.util.HashMap;
 import java.util.Map;
 import spark.ModelAndView;
+import spark.Route;
 
 import static spark.Spark.*;
 import java.security.InvalidParameterException;
@@ -10,7 +11,7 @@ public class App {
     String layout = "templates/layout.vtl";
     staticFileLocation("/public");
 
-    get("/", (request, response) -> {
+    get("/", (Route) (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       model.put("animals", Animal.all());
       model.put("normalAnimals", Animal.allNormal());
@@ -19,14 +20,14 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
-    get("/notFound", (request, response) -> {
+    get("/notFound", (Route) (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       model.put("message", request.session().attribute("message"));
       model.put("template", "templates/bad-request.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
-    post("/animals/new-endangered", (request, response) -> {
+    post("/animals/new-endangered", (Route) (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       String animalName = request.queryParams("animal-name");
       String animalHealth = request.queryParams("animal-health");
@@ -43,7 +44,7 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
-    post("/animals/new", (request, response) -> {
+    post("/animals/new", (Route) (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       String animalName = request.queryParams("animal-name");
       Animal newAnimal = new Animal(animalName);
@@ -58,7 +59,7 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
-    get("/animals/:id", (request, response) -> {
+    get("/animals/:id", (Route) (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       Animal animal = Animal.find(Integer.parseInt(request.params(":id")));
       if(animal.isEndangered()) {
@@ -70,7 +71,7 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
-    post("/animals/:id/sightings/new", (request, response) -> {
+    post("/animals/:id/sightings/new", (Route) (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       String sightingRanger = request.queryParams("sighting-ranger");
       int sightingAnimalId = Integer.parseInt(request.queryParams("sighting-animal-id"));
