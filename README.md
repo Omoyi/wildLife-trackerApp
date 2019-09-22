@@ -18,4 +18,8 @@ This is a simple java application that allows Rangers to track wildlife sighting
 * Postgres SQL (Database)
 
 
-## Insta
+## Installation tips/ Setup instruction
+
+* Clone this repository.
+* Install  Postgres SQL.
+* 
