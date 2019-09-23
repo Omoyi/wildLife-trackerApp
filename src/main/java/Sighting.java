@@ -18,7 +18,10 @@ public class Sighting {
     this.animalId = animalId;
   }
 
-  public int getId() {
+    public Sighting(int animalIdSelected, String location, String rangerName) {
+    }
+
+    public int getId() {
     return id;
   }
 

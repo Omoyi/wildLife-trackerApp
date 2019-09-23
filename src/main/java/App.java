@@ -1,33 +1,42 @@
+import spark.ModelAndView;
+import spark.template.handlebars.HandlebarsTemplateEngine;
+
+import java.security.InvalidParameterException;
 import java.util.HashMap;
 import java.util.Map;
-import spark.ModelAndView;
-import spark.Route;
-
 import static spark.Spark.*;
-import java.security.InvalidParameterException;
+
 
 public class App {
-  public static void main(String[] args) {
-    String layout = "templates/layout.vtl";
-    staticFileLocation("/public");
 
-    get("/", (Route) (request, response) -> {
+  static int getHerokuAssignedPort() {
+    ProcessBuilder processBuilder = new ProcessBuilder();
+    if (processBuilder.environment().get("PORT") != null) {
+      return Integer.parseInt(processBuilder.environment().get("PORT"));
+    }
+    return 4567; //return default port if heroku-port isn't set (i.e. on localhost)
+  }
+
+  public static void main(String[] args) {
+    String layout = "templates/layout.hbs";
+    staticFileLocation("/public");
+    get("/", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       model.put("animals", Animal.all());
       model.put("normalAnimals", Animal.allNormal());
       model.put("endangeredAnimals", EndangeredAnimal.allEndangeredAnimals());
-      model.put("template", "templates/index.vtl");
-      return new ModelAndView(model, layout);
-    }, new VelocityTemplateEngine());
+      model.put("templates", "/index.hbs");
+      return new ModelAndView(model, "index.hbs");
+    }, new HandlebarsTemplateEngine());
 
-    get("/notFound", (Route) (request, response) -> {
+    get ( "/notFound",(request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       model.put("message", request.session().attribute("message"));
-      model.put("template", "templates/bad-request.vtl");
+      model.put("template", "templates/bad-request.hbs");
       return new ModelAndView(model, layout);
-    }, new VelocityTemplateEngine());
+    }, new HandlebarsTemplateEngine());
 
-    post("/animals/new-endangered", (Route) (request, response) -> {
+    post("/animals/new-endangered",(request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       String animalName = request.queryParams("animal-name");
       String animalHealth = request.queryParams("animal-health");
@@ -42,9 +51,9 @@ public class App {
       }
       response.redirect("/animals/" + newAnimal.getId());
       return new ModelAndView(model, layout);
-    }, new VelocityTemplateEngine());
+    }, new HandlebarsTemplateEngine());
 
-    post("/animals/new", (Route) (request, response) -> {
+    post("/animals/new",(request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       String animalName = request.queryParams("animal-name");
       Animal newAnimal = new Animal(animalName);
@@ -57,9 +66,9 @@ public class App {
       }
       response.redirect("/animals/" + newAnimal.getId());
       return new ModelAndView(model, layout);
-    }, new VelocityTemplateEngine());
+    }, new HandlebarsTemplateEngine());
 
-    get("/animals/:id", (Route) (request, response) -> {
+    get("/animals/:id", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       Animal animal = Animal.find(Integer.parseInt(request.params(":id")));
       if(animal.isEndangered()) {
@@ -67,11 +76,11 @@ public class App {
       }
       model.put("animal", animal);
       model.put("sightings", animal.getSightings());
-      model.put("template", "templates/animal-sightings.vtl");
+      model.put("template", "templates/animal-sightings.hbs");
       return new ModelAndView(model, layout);
-    }, new VelocityTemplateEngine());
+    }, new HandlebarsTemplateEngine());
 
-    post("/animals/:id/sightings/new", (Route) (request, response) -> {
+    post("/animals/:id/sightings/new",(request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       String sightingRanger = request.queryParams("sighting-ranger");
       int sightingAnimalId = Integer.parseInt(request.queryParams("sighting-animal-id"));
@@ -86,7 +95,8 @@ public class App {
       }
       response.redirect("/animals/" + newSighting.getAnimalId());
       return new ModelAndView(model, layout);
-    }, new VelocityTemplateEngine());
+    }, new HandlebarsTemplateEngine());
 
   }
 }
+
