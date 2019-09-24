@@ -1,0 +1,26 @@
+{{#partial "content"}}
+    <nav class="navbar navbar-light">
+        <ol class="breadcrumb">
+            <li><a href="/">Home</a></li>
+            <li class="active">Add Animal</li>
+            <li><a href="/animals">All Animals</a></li>
+            <li><a href="/sighting">Post Sighting</a></li>
+        </ol>
+    </nav>
+    <div>
+        <img class="image" src="/images/fox.jpg" alt="Fox">
+    </div>
+    <div class="form">
+        <center>
+            <h1>Add Animal to Database</h1>
+            <form action="/animal/new" method="post">
+                <label>Animal Species</label>
+                <input type="text" name="name">
+                <label>Endangered?</label>
+                <input type="checkbox" name="endangered">
+                <button type="submit" class="btn">Add Animal</button>
+            </form>
+        </center>
+    </div>
+{{/partial}}
+{{>layout.hbs}}

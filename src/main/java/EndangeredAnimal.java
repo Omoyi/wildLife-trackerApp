@@ -5,6 +5,11 @@ import java.security.InvalidParameterException;
 public class EndangeredAnimal extends Animal {
   public String health;
   public String age;
+  public boolean endangered;
+  public String name;
+  public int id;
+
+
 
   public static final String HEALTHY = "Healthy";
   public static final String ILL = "Ill";
@@ -16,6 +21,15 @@ public class EndangeredAnimal extends Animal {
 
   public EndangeredAnimal(String name, String health, String age) {
     super(name);
+    this.name = name;
+    this.health = health;
+    this.age = age;
+    this.endangered = true;
+  }
+
+  public EndangeredAnimal(String name) {
+    super(name);
+    this.name = name;
     this.health = health;
     this.age = age;
     this.endangered = true;
@@ -28,6 +42,10 @@ public class EndangeredAnimal extends Animal {
   public String getAge() {
     return age;
   }
+
+  public String getName() { return name; }
+
+  public int getId() { return id; }
 
   @Override
   public void checkFields() {

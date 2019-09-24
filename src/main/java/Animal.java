@@ -11,7 +11,6 @@ public class Animal {
 
   public Animal(String name) {
     this.name = name;
-    this.endangered = false;
   }
 
   public int getId() {
