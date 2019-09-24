@@ -54,51 +54,20 @@ public class App {
       return new ModelAndView(model, "allAnimals.hbs");
     }, new HandlebarsTemplateEngine());
 
-
-    // route for adding new animal form
-    post("/animal/new",(request, response) -> {
-      Map<String, Object> model = new HashMap<String, Object>();
+    post("/animal/new", (request, response) -> {
       boolean endangered = request.queryParams("endangered")!=null;
-      String animalName = request.queryParams("animal-name");
-      Animal newAnimal = new Animal(animalName);
-
-      try {
-        newAnimal.checkFields();
-        newAnimal.save();
-          if (endangered) {
-          String name = request.queryParams("name");
-          EndangeredAnimal endangeredAnimal = new EndangeredAnimal(name);
-          endangeredAnimal.save();
-            response.redirect("/notfound");
-          } else {
-          String name = request.queryParams("name");
-          Animal animal = new Animal(name);
-          animal.save();
-         }
-      } catch(InvalidParameterException ipe) {
-        response.redirect("/notFound");
-        request.session().attribute("message", ipe.getMessage());
-
+      if (endangered) {
+        String name = request.queryParams("name");
+        EndangeredAnimal endangeredAnimal = new EndangeredAnimal(name);
+        endangeredAnimal.save();
+      } else {
+        String name = request.queryParams("name");
+        Animal animal = new Animal(name);
+        animal.save();
       }
-      response.redirect("/allAnimals" + newAnimal.getId());
-      return new ModelAndView(model, "index.hbs");
-    }, new HandlebarsTemplateEngine());
-
-
-//    post("/animal/new", (request, response) -> {
-//      boolean endangered = request.queryParams("endangered")!=null;
-//      if (endangered) {
-//        String name = request.queryParams("name");
-//        EndangeredAnimal endangeredAnimal = new EndangeredAnimal(name);
-//        endangeredAnimal.save();
-//      } else {
-//        String name = request.queryParams("name");
-//        Animal animal = new Animal(name);
-//        animal.save();
-//      }
-//      response.redirect("/");
-//      return null;
-//    });
+      response.redirect("/allAnimals");
+      return null;
+    });
 //.........................................................................................
 
 
