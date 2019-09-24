@@ -19,6 +19,7 @@ public class App {
 
   public static void main(String[] args) {
 
+    String layout = "/layout.hbs";
     staticFileLocation("/public");
     get("/", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
@@ -68,19 +69,27 @@ public class App {
       return new ModelAndView(model, "layout.hbs");
     }, new HandlebarsTemplateEngine());
 
-    get("/animals/:id", (request, response) -> {
+   // route when clicking on "Add Animal to System"
+    get("/animal/new", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
-      Animal animal = Animal.find(Integer.parseInt(request.params(":id")));
+      model.put("template", "templates/animal-form.vtl");
+      return new ModelAndView(model, layout);
+    }, new HandlebarsTemplateEngine());
+
+
+    get("/animals/", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      Animal animal = Animal.find(Integer.parseInt(request.queryParams(":id")));
       if(animal.isEndangered()) {
-        animal = (EndangeredAnimal) EndangeredAnimal.findEndangeredAnimal(Integer.parseInt(request.params(":id")));
+        animal = EndangeredAnimal.findEndangeredAnimal(Integer.parseInt(request.queryParams(":id")));
       }
       model.put("animal", animal);
       model.put("sightings", animal.getSightings());
-      model.put("templates", "animal-sightings.hbs");
-      return new ModelAndView(model, "animal-sightings.hbs");
+//      model.put("templates", "sightings.hbs");
+      return new ModelAndView(model, "sightings.hbs");
     }, new HandlebarsTemplateEngine());
 
-    post("/animals/:id/sightings/new",(request, response) -> {
+    post("/animals/sightings/new",(request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       String sightingRanger = request.queryParams("sighting-ranger");
       int sightingAnimalId = Integer.parseInt(request.queryParams("sighting-animal-id"));
