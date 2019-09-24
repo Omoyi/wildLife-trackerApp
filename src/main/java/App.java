@@ -14,11 +14,11 @@ public class App {
     if (processBuilder.environment().get("PORT") != null) {
       return Integer.parseInt(processBuilder.environment().get("PORT"));
     }
-    return 4567; //return default port if heroku-port isn't set (i.e. on localhost)
+    return 4567;
   }
 
   public static void main(String[] args) {
-    String layout = "templates/layout.hbs";
+
     staticFileLocation("/public");
     get("/", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
@@ -32,8 +32,8 @@ public class App {
     get ( "/notFound",(request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       model.put("message", request.session().attribute("message"));
-      model.put("template", "templates/bad-request.hbs");
-      return new ModelAndView(model, layout);
+      model.put("templates", "bad-request.hbs");
+      return new ModelAndView(model, "bad-request.hbs");
     }, new HandlebarsTemplateEngine());
 
     post("/animals/new-endangered",(request, response) -> {
@@ -50,7 +50,7 @@ public class App {
         response.redirect("/notFound");
       }
       response.redirect("/animals/" + newAnimal.getId());
-      return new ModelAndView(model, layout);
+      return new ModelAndView(model, "layout.hbs");
     }, new HandlebarsTemplateEngine());
 
     post("/animals/new",(request, response) -> {
@@ -65,7 +65,7 @@ public class App {
         response.redirect("/notFound");
       }
       response.redirect("/animals/" + newAnimal.getId());
-      return new ModelAndView(model, layout);
+      return new ModelAndView(model, "layout.hbs");
     }, new HandlebarsTemplateEngine());
 
     get("/animals/:id", (request, response) -> {
@@ -76,8 +76,8 @@ public class App {
       }
       model.put("animal", animal);
       model.put("sightings", animal.getSightings());
-      model.put("template", "templates/animal-sightings.hbs");
-      return new ModelAndView(model, layout);
+      model.put("templates", "animal-sightings.hbs");
+      return new ModelAndView(model, "animal-sightings.hbs");
     }, new HandlebarsTemplateEngine());
 
     post("/animals/:id/sightings/new",(request, response) -> {
@@ -94,7 +94,7 @@ public class App {
         response.redirect("/notFound");
       }
       response.redirect("/animals/" + newSighting.getAnimalId());
-      return new ModelAndView(model, layout);
+      return new ModelAndView(model, "layout.hbs");
     }, new HandlebarsTemplateEngine());
 
   }

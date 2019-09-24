@@ -6,11 +6,11 @@ import java.text.SimpleDateFormat;
 import java.security.InvalidParameterException;
 
 public class Sighting {
-  int id;
-  Timestamp dateTime;
-  String location;
-  String rangerName;
-  int animalId;
+  private int id;
+  private Timestamp dateTime;
+  private String location;
+  private String rangerName;
+  private int animalId;
 
   public Sighting(String location, String rangerName, int animalId) {
     this.location = location;
@@ -18,10 +18,7 @@ public class Sighting {
     this.animalId = animalId;
   }
 
-    public Sighting(int animalIdSelected, String location, String rangerName) {
-    }
-
-    public int getId() {
+  public int getId() {
     return id;
   }
 
@@ -47,8 +44,8 @@ public class Sighting {
     }
   }
 
-  public String getFormattedDate(){
-    SimpleDateFormat formatter = new SimpleDateFormat("EEEE, MMMM dd yyyy hh:mm a");
+  private String getFormattedDate(){
+    SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/YYYY");
     return formatter.format(dateTime);
   }
 
