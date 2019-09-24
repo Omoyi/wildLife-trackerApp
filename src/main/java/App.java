@@ -63,6 +63,8 @@ public class App {
       Animal newAnimal = new Animal(animalName);
 
       try {
+        newAnimal.checkFields();
+        newAnimal.save();
           if (endangered) {
           String name = request.queryParams("name");
           EndangeredAnimal endangeredAnimal = new EndangeredAnimal(name);
@@ -73,12 +75,10 @@ public class App {
           Animal animal = new Animal(name);
           animal.save();
          }
-
-          newAnimal.checkFields();
-           newAnimal.save();
       } catch(InvalidParameterException ipe) {
-        request.session().attribute("message", ipe.getMessage());
         response.redirect("/notFound");
+        request.session().attribute("message", ipe.getMessage());
+
       }
       response.redirect("/allAnimals" + newAnimal.getId());
       return new ModelAndView(model, "index.hbs");
