@@ -1,9 +1,8 @@
 {{#partial "content" }}
 <body>
     <div>
-        <h1>Welcome to Wildlife Tracker</h1>
-        <hr>
-    </div>
+       <h1>WILDLIFE TRACKER</h1>
+    </div><br><br>
     <div class="row">
         <div class="col-sm-4">
             <h3><a href="/animal/new">Add Animal</a></h3>
@@ -15,16 +14,114 @@
             <h3><a href="/sighting">Post Animal Sighting</a></h3>
         </div>
     </div>
-    <hr>
+
+
+<ul class="menu">
+    <li class="menu_list">
+        <span class="front fas fa-home"></span>
+        <a  href="/" class="side">home</a>
+    </li>
+    <li class="menu_list">
+        <span class="front fas fa-info"></span>
+        <a href="/allAnimals" class="side">Animals</a>
+    </li>
+    <li class="menu_list">
+        <span class="front fas fa-briefcase"></span>
+        <a href="/sighting" class="side">Post</a>
+    </li>
+</ul>
 </body>
+
+
 <style>
    h3, h1 {
        text-align:center;
    }
 
-   body {
-      /*background-image: url(http://s1.1zoom.me/big3/181/Sunrises_and_sunsets_Sea_501455.jpg);
+   h3 {
+       font-family: 'Montserrat', sans-serif;
+       color: #051305;
    }
+
+   body {
+      background-image: url(https://nikcollection-cdn.dxo.com/wp-content/uploads/2019/06/color-efex-elephant-3.jpg);
+      width: 600px;
+      height: 1000px;
+   }
+
+   ul {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ul.menu {
+    display: inline-block;
+    list-style-type: none;
+}
+li.menu_list {
+    height: 170px;
+    width: 85px;
+    position: relative;
+}
+li.menu_list .front,
+a.side {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 60px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all .5s ease-out;
+    cursor: pointer;
+}
+li.menu_list .front {
+    background-color: #061806;
+    color: #FFFC00;
+    transform-origin: 0 0;
+}
+a.side {
+    background-color: #FFFC00;
+    color: #34465d;
+    transform-origin: 0 0 85px;
+    transform: rotateY(-90deg);
+}
+li.menu_list:hover a.side {
+    transform: rotateY(0deg);
+}
+li.menu_list:hover .front {
+    transform: rotateY(90deg);
+}
+
+
+h1 {
+    font-family: 'Lato', sans-serif;
+    display: block;
+    color: #061806;
+    width: 100%;
+    height: 100%;
+    font-size: 100px;
+    margin: 0 auto;
+    font-weight: 600;
+    margin-left: 27%;
+    margin-right: 25%;
+}
+
+h1::before {
+    content: "GREEN FORESTRY";
+    color:  #E1F0E1;
+    font-size: 130px;
+    opacity: 0.8;
+    display: block;
+    margin: -130px -90px;
+    font-weight: 900;
+    letter-spacing: 10px;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
 </style>
 {{/partial}}
 

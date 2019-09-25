@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'application'
 }
 
 group 'wildLife-trackerApp'
@@ -20,4 +21,6 @@ dependencies {
     compile group: 'org.postgresql', name: 'postgresql', version: '42.2.2'
 }
 
-
+applicationName = "wildlife-trackerApp"
+mainClassName = 'App'
+task stage(dependsOn:  [])

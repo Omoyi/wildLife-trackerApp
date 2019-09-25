@@ -13,39 +13,39 @@
     <div class="col-sm-6">
         <h3 style="text-align:center">Endangered Animals</h3>
 <!--        #if ($endangeredAnimals.size() == 0)-->
-        {{#if size}}
+        {{#if endangeredAnimals}}
         <a href="/animal/new">Add Animal to Database to Report a Sighting</a>
         {{else}}
-        #foreach ($endangeredAnimal in $endangeredAnimals)
+        {{#foreach endangeredAnimal instanceof endangeredAnimals}}
         <div class="thumbnail">
             <center>
-                <h4>$endangeredAnimal.getName()</h4>
-                <h4>$endangeredAnimal.getSightings().size() Reported Sighting(s)</h4>
+                <h4>{{name}}</h4>
+<!--                <h4>$endangeredAnimal.getSightings().size() Reported Sighting(s)</h4>-->
                 <a href="/endangered_animal/$endangeredAnimal.getId()">
                     Click here for details
                 </a>
             </center>
         </div>
-        #end
+        {{/foreach}}
         {{/if}}
     </div>
     <div class="col-sm-6">
         <h3 style="text-align:center">Non-Endangered Animals</h3>
-        #if ($animals.size() == 0)
+        {{#if sightings}}
         <a href="/animal/new">Add Animal to Database to Report a Sighting</a>
-        #else
-        #foreach ($animal in $animals)
+        {{else}}
+        {{#foreach animal in animals}}
         <div class="thumbnail">
             <center>
-                <h4>$animal.getName()</h4>
+                <h4>{{name}}</h4>
                 <h4>$animal.getSightings().size() Reported Sighting(s)</h4>
                 <a href="/animal/$animal.getId()">
                     Click here for details
                 </a>
             </center>
         </div>
-        #end
-        #end
+            {{/foreach}}
+        {{/if}}
     </div>
 </div>
 
