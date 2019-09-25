@@ -54,23 +54,8 @@ public class App {
       return new ModelAndView(model, "allAnimals.hbs");
     }, new HandlebarsTemplateEngine());
 
-    post("/animal/new", (request, response) -> {
-      boolean endangered = request.queryParams("endangered")!=null;
-      if (endangered) {
-        String name = request.queryParams("name");
-        EndangeredAnimal endangeredAnimal = new EndangeredAnimal(name);
-        endangeredAnimal.save();
-      } else {
-        String name = request.queryParams("name");
-        Animal animal = new Animal(name);
-        animal.save();
-      }
-      response.redirect("/allAnimals");
-      return null;
-    });
-//.........................................................................................
 
-
+//.............................................................................................
     //route when user clicks "All Animals" or "View Animals"
     get("/allAnimals", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
@@ -95,6 +80,22 @@ public class App {
       model.put("endangeredAnimals", EndangeredAnimal.all());
       return new ModelAndView(model, "sightings.hbs");
     }, new HandlebarsTemplateEngine());
+
+    // route for adding new animal form
+    post("/animal/new", (request, response) -> {
+      boolean endangered = request.queryParams("endangered")!=null;
+      if (endangered) {
+        String name = request.queryParams("name");
+        EndangeredAnimal endangeredAnimal = new EndangeredAnimal(name);
+        endangeredAnimal.save();
+      } else {
+        String name = request.queryParams("name");
+        Animal animal = new Animal(name);
+        animal.save();
+      }
+      response.redirect("/allAnimals");
+      return null;
+    });
 
 
 //.........................................................................................
@@ -124,6 +125,7 @@ public class App {
         response.redirect("/notFound");
       }
       response.redirect("/animals/" + newSighting.getAnimalId());
+
       return new ModelAndView(model, "layout.hbs");
     }, new HandlebarsTemplateEngine());
 

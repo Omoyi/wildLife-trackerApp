@@ -1,15 +1,13 @@
 {{#partial "content"}}
+ <body>
     <nav class="navbar navbar-light">
         <ol class="breadcrumb">
             <li><a href="/">Home</a></li>
             <li class="active">Add Animal</li>
-            <li><a href="/animals">All Animals</a></li>
+            <li><a href="/allAnimals">All Animals</a></li>
             <li><a href="/sighting">Post Sighting</a></li>
         </ol>
     </nav>
-    <div>
-        <img class="image" src="/images/fox.jpg" alt="Fox">
-    </div>
     <div class="form">
         <center>
             <h1>Add Animal to Database</h1>
@@ -22,5 +20,11 @@
             </form>
         </center>
     </div>
+ </body>
+    <style>
+        body {
+           background-image: url(https://images.pexels.com/photos/39629/tiger-tiger-baby-tigerfamile-young-39629.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+        }
+    </style>
 {{/partial}}
 {{>layout.hbs}}
