@@ -1,4 +1,5 @@
 {{#partial "content"}}
+    <body>
     <nav class="navbar navbar-light">
         <ol class="breadcrumb">
             <li><a href="/">Home</a></li>
@@ -8,7 +9,7 @@
         </ol>
     </nav>
     <div class="row">
-        <div class="col-sm-6">
+        <div class="col-lg-6">
             <h2>Endangered Animal Sighting</h2>
             <form action="/endangered_sighting" method="post">
                 #if($endangeredAnimals.size() >= 0)
@@ -22,13 +23,13 @@
                 <label>Health</label>
                 &emsp;<select name="health">
                 <option>Sick</option>
-                <option>Okay</option>
+                <option>Good</option>
                 <option>Healthy</option>
             </select>
                 <br>
                 <label>Age</label>
                 &emsp;<select name="age">
-                <option>Newborn</option>
+                <option>Infant</option>
                 <option>Young</option>
                 <option>Adult</option>
             </select>
@@ -43,7 +44,7 @@
                 #end
             </form>
         </div>
-        <div class="col-sm-6">
+        <div class="col-lg-6">
             <h2>Non-Endangered Animal Sighting</h2>
             <form action="/sighting" method="post">
                 #if($animals.size() >= 0)
@@ -65,5 +66,15 @@
             </form>
         </div>
     </div>
+    </body>
+    <style>
+       body {
+           background-image: url(https://scontent-amt2-1.cdninstagram.com/v/t51.2885-15/e35/65249732_698686200565838_3212576172444365396_n.jpg?_nc_ht=scontent-amt2-1.cdninstagram.com&se=7&oh=ce4c6f47abb0959d968a5205a62c7f92&oe=5DF7B988&ig_cache_key=MjA4MTQzMTg4MTE2NTIyODU5Ng%3D%3D.2);
+           background-size: cover;
+           background-repeat: no-repeat;
+       }
+
+
+    </style>
 {{/partial}}
 {{> layout.hbs}}

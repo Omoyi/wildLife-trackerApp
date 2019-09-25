@@ -12,9 +12,10 @@
 <div class="row">
     <div class="col-sm-6">
         <h3 style="text-align:center">Endangered Animals</h3>
-        #if ($endangeredAnimals.size() == 0)
+<!--        #if ($endangeredAnimals.size() == 0)-->
+        {{#if size}}
         <a href="/animal/new">Add Animal to Database to Report a Sighting</a>
-        #else
+        {{else}}
         #foreach ($endangeredAnimal in $endangeredAnimals)
         <div class="thumbnail">
             <center>
@@ -26,7 +27,7 @@
             </center>
         </div>
         #end
-        #end
+        {{/if}}
     </div>
     <div class="col-sm-6">
         <h3 style="text-align:center">Non-Endangered Animals</h3>
