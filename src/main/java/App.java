@@ -28,6 +28,12 @@ public class App {
       return new ModelAndView(model, "index.hbs");
     }, new HandlebarsTemplateEngine());
 
+    get("/details", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      return new ModelAndView(model, "animalDetails.hbs");
+    }, new HandlebarsTemplateEngine());
+
+
     get ( "/notFound",(request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       model.put("message", request.session().attribute("message"));
@@ -35,9 +41,6 @@ public class App {
       return new ModelAndView(model, "bad-request.hbs");
     }, new HandlebarsTemplateEngine());
 
-
-
-//.............................................................................................
     //route when user clicks "All Animals" or "View Animals"
     get("/allAnimals", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();

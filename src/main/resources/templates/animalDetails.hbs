@@ -1,61 +1,25 @@
 {{#partial "content"}}
     <body>
-    <div class="main">
+    <div class="navbar">
         <nav class="nav-bar">
             <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/add/new"> Add Animal </a></li>
-                <li><a href="/form"> All Animals</a></li>
-                <li><a href="/animals">post Sighting</a></li>
+                <li><a href="/">HOME</a></li>
+                <li><a href="/animal/new">ADD ANIMAL</a></li>
+                <li><a href="/allAnimals">ALL ANIMALS</a></li>
+                <li><a href="/sighting">POST SIGHTING</a></li>
 
             </ul>
         </nav>
     </div>
-    <style>
-     body{
-    background-image: url(https://wallpapercave.com/wp/pLNajY7.jpg);
-    background-repeat:no-repeat;
-    background-size:cover;
-    font-family: 'Lobster Two', cursive;
-     }
-     .main{
-       margin: 50px;
-       background-color:white;
-       border: 2px solid #5D4D49;
-     }
-     .nav-bar{
-       word-spacing: 40px;
-       font-size: 20px;
-       font-family: 'Poiret One', cursive;
-     }
-     .nav-bar ul li a{
-       text-decoration: none;
-       color: black;
-     }
-     .nav-bar ul li{
-       display: inline-block;
-       -webkit-transition: border 1s, border-radius 1s, padding 1s, background-color 1s, color 1s;
-     }
-     .nav-bar ul li:hover{
-       border-bottom: 2px solid gray;
-       border-radius: 10%;
-       padding: 10px;
-        background-color:#737CA1;
-       color: white;
-     }
-     </style>
-
-<div class="well" style="text-align:center">
+   <br><br>
+   <div class="well" style="text-align:center">
 
     {{#if endangeredAnimalSelected}}
 
         {{#each endangeredAnimalSelected}}
             <div class="well">
-
-                <p>Location:
-                    {{ location}}</p>
-                <p>
-                    Ranger name:{{ ranger}}</p>
+                <p>Location:{{ location}}</p>
+                <p>Ranger name:{{ ranger}}</p>
                 <p>Id of animal:{{animalId}}</p>
                 <p>date seen:{{date}}</p>
             </div>
@@ -64,11 +28,70 @@
         <br>
 
     {{else}}
-        <p>No  sightings!</p>
+        <p>No Available posted sightings yet!</p>
     {{/if}}
 </div>
+  <hr>
+    <p style="background-color: olive; color: brown;">.........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................</p>
+  <hr>
+    <div class="footer">
+        Copyright&copy;2019 Rachel | urakhel7@gmail.com
+    </div>
 </body>
+    <style>
+     body{
+          background-image: url(https://clba.org/wp-content/uploads/2017/01/iStock-139255757.jpg);
+          background-repeat:no-repeat;
+          background-size:cover;
+     }
 
+     .well {
+        width: 70%;
+        border: none;
+        background-color: #ADD8E6;
+        margin-left: 16%;
+        padding: 60px;
+     }
+     .navbar{
+       margin: 50px;
+       text-align: center;
+     }
+     .nav-bar{
+       font-size: 20px;
+       font-family: 'Poiret One', cursive;
+     }
+     .nav-bar ul li a{
+       text-decoration: none;
+       color: black;
+       margin-left: 30px;
+       text-align: center;
+     }
+     .footer {
+         margin-bottom: 2%;
+         display: block;
+         color: #061806;
+         margin-top: 650px;
+         text-align: center;
+         font-size: 20px;
+     }
 
+     p {
+       font-size: 18px;
+       font-family: 'Lato', sans-serif;
+     }
+
+     .nav-bar ul li{
+       display: inline-block;
+       text-align: center;
+       -webkit-transition: border 1s, border-radius 1s, padding 1s, background-color 1s, color 1s;
+     }
+     .nav-bar ul li:hover{
+       text-align: center;
+       margin-left: 30px;
+       border-bottom: 2px solid gray;
+       border-radius: 10%;
+       padding: 10px;
+     }
+     </style>
 {{/partial}}
 {{> layout.hbs}}

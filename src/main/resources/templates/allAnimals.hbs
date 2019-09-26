@@ -1,5 +1,5 @@
 {{#partial "content"}}
-
+<body>
 <nav class="navbar navbar-light">
     <ol class="breadcrumb">
         <li><a href="/">Home</a></li>
@@ -11,7 +11,7 @@
 
 <div class="row">
     <div class="col-sm-6">
-        <h3 style="text-align:center">Endangered Animals</h3>
+        <h3 style="text-align:center">Endangered Animals</h3><br>
         <a href="/animal/new">Add Animal to Report a Sighting</a>
         {{#if endangeredAnimals}}
 
@@ -28,7 +28,7 @@
         {{/if}}
     </div>
     <div class="col-sm-6">
-        <h3 style="text-align:center">Non-Endangered Animals</h3>
+        <h3 style="text-align:center">Non-Endangered Animals</h3><br>
         {{#if animals}}
         <a href="/animal/new">Add Animal to Report a Sighting</a>
 
@@ -46,8 +46,18 @@
         {{/if}}
     </div>
 </div>
+</body>
 <style>
+  body {
+      background-image: url(https://previews.123rf.com/images/hayesnch/hayesnch1512/hayesnch151200300/49866675-vector-leaf-veins-closeup-pattern-background-simple-realistic-portrait.jpg);
+  }
 
+  h3 {
+      color: wheat;
+      font-size: 50px;
+      text-shadow: 4px 4px 5px green;
+      text-align: center;
+  }
 </style>
 {{/partial}}
 {{> layout.hbs}}

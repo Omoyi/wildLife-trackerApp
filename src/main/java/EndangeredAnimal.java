@@ -7,6 +7,7 @@ public class EndangeredAnimal {
   public String age;
   public boolean endangered;
   public String name;
+  public int animalId;
   public int id;
 
   public EndangeredAnimal(String name,  boolean endangered) {
@@ -28,7 +29,7 @@ public class EndangeredAnimal {
 
   public String getName() { return name; }
 
-  public int getId() { return id; }
+  public int getId() { return animalId; }
 
   @Override
   public boolean equals(Object otherEndangeredAnimal) {
@@ -60,11 +61,11 @@ public class EndangeredAnimal {
     }
   }
 
-  public static EndangeredAnimal find(int id) {
+  public static EndangeredAnimal find(int animalId) {
     try(Connection con = DB.sql2o.open()) {
       String sql = "SELECT * FROM animals WHERE id=:id;";
       EndangeredAnimal endangeredAnimal = con.createQuery(sql)
-              .addParameter("id", id)
+              .addParameter("id", animalId)
               .executeAndFetchFirst(EndangeredAnimal.class);
       return endangeredAnimal;
     } catch (IndexOutOfBoundsException exception) {
@@ -77,7 +78,7 @@ public class EndangeredAnimal {
       String updateHealth = "UPDATE endangered_animals SET health=:health WHERE id=:id;";
       String updateAge = "UPDATE endangered_animals SET age=:age WHERE id=:id;";
       con.createQuery(updateHealth)
-              .addParameter("id", id)
+              .addParameter("id", animalId)
               .addParameter("health", health)
               .executeUpdate();
       con.createQuery(updateAge)
@@ -89,7 +90,7 @@ public class EndangeredAnimal {
 
   public List<Sighting> getSightings() {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "SELECT * FROM sightings WHERE animal_id = :id;";
+      String sql = "SELECT * FROM sightings WHERE animalId = :id;";
       List<Sighting> sightings = con.createQuery(sql)
               .addParameter("id", id)
               .executeAndFetch(Sighting.class);
