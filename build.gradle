@@ -23,4 +23,4 @@ dependencies {
 
 applicationName = "wildlife-trackerApp"
 mainClassName = 'App'
-task stage(dependsOn:  [])
+task stage(dependsOn:  ['clean', 'installDist'])

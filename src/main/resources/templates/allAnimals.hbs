@@ -34,17 +34,17 @@
         {{#if sightings}}
         <a href="/animal/new">Add Animal to Database to Report a Sighting</a>
         {{else}}
-        {{#foreach animal in animals}}
+        {{#each animal in animals}}
         <div class="thumbnail">
             <center>
                 <h4>{{name}}</h4>
-                <h4>$animal.getSightings().size() Reported Sighting(s)</h4>
+<!--                <h4>$animal.getSightings().size() Reported Sighting(s)</h4>-->
                 <a href="/animal/$animal.getId()">
                     Click here for details
                 </a>
             </center>
         </div>
-            {{/foreach}}
+            {{/each}}
         {{/if}}
     </div>
 </div>
