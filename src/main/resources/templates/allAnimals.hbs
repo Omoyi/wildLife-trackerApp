@@ -12,16 +12,14 @@
 <div class="row">
     <div class="col-sm-6">
         <h3 style="text-align:center">Endangered Animals</h3>
-<!--        #if ($endangeredAnimals.size() == 0)-->
+        <a href="/animal/new">Add Animal to Report a Sighting</a>
         {{#if endangeredAnimals}}
-        <a href="/animal/new">Add Animal to Database to Report a Sighting</a>
-        {{else}}
-        {{#each endangeredAnimal instanceof endangeredAnimals}}
+
+        {{#each endangeredAnimals}}
         <div class="thumbnail">
             <center>
                 <h4>{{name}}</h4>
-<!--                <h4>$endangeredAnimal.getSightings().size() Reported Sighting(s)</h4>-->
-                <a href="/endangered_animal/$endangeredAnimal.getId()">
+                <a href="/endangeredAnimal/{{id}}">
                     Click here for details
                 </a>
             </center>
@@ -31,15 +29,15 @@
     </div>
     <div class="col-sm-6">
         <h3 style="text-align:center">Non-Endangered Animals</h3>
-        {{#if sightings}}
-        <a href="/animal/new">Add Animal to Database to Report a Sighting</a>
-        {{else}}
-        {{#each animal in animals}}
+        {{#if animals}}
+        <a href="/animal/new">Add Animal to Report a Sighting</a>
+
+        {{#each animals}}
         <div class="thumbnail">
             <center>
                 <h4>{{name}}</h4>
-<!--                <h4>$animal.getSightings().size() Reported Sighting(s)</h4>-->
-                <a href="/animal/$animal.getId()">
+
+                <a href="/animal/{{id}}">
                     Click here for details
                 </a>
             </center>
@@ -48,6 +46,8 @@
         {{/if}}
     </div>
 </div>
+<style>
 
+</style>
 {{/partial}}
 {{> layout.hbs}}

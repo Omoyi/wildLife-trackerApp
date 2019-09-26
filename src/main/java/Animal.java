@@ -9,8 +9,9 @@ public class Animal {
   public String name;
   public boolean endangered;
 
-  public Animal(String name) {
+  public Animal(String name,boolean endangered) {
     this.name = name;
+    this.endangered=endangered;
   }
 
   public int getId() {
@@ -32,18 +33,18 @@ public class Animal {
   }
 
   public static List<Animal> all() {
-    String sql = "SELECT * FROM animals";
+    String sql = "SELECT * FROM animals where endangered=false;";
     try(Connection con = DB.sql2o.open()) {
       return con.createQuery(sql).throwOnMappingFailure(false).executeAndFetch(Animal.class);
     }
   }
 
-  public static List<Animal> allNormal() {
-    String sql = "SELECT * FROM animals WHERE endangered = false";
-    try(Connection con = DB.sql2o.open()) {
-      return con.createQuery(sql).throwOnMappingFailure(false).executeAndFetch(Animal.class);
-    }
-  }
+//  public static List<Animal> allNormal() {
+//    String sql = "SELECT * FROM animals WHERE endangered = false";
+//    try(Connection con = DB.sql2o.open()) {
+//      return con.createQuery(sql).throwOnMappingFailure(false).executeAndFetch(Animal.class);
+//    }
+//  }
 
   public void save() {
     try(Connection con = DB.sql2o.open()) {

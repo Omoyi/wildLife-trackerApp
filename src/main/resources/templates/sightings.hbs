@@ -12,13 +12,15 @@
         <div class="col-lg-6">
             <h2>Endangered Animal Sighting</h2>
             <form action="/endangered_sighting" method="post">
-                #if($endangeredAnimals.size() >= 0)
+                {{#if endangeredAnimals}}
                 <label>Select Endangered Animal</label>
                 <select name="endangeredAnimalSelected">
-                    #foreach($endangered_animal in $endangeredAnimals)
-                    <option value="$endangered_animal.getId()">$endangered_animal.getName()</option>
-                    #end
+                 {{#each endangeredAnimals}}
+                    <option value={{id}}>{{name}}</option>
+
                 </select>
+                    {{/each}}
+                    {{/if}}
                 </br>
                 <label>Health</label>
                 &emsp;<select name="health">
@@ -41,28 +43,31 @@
                 &emsp;<input type="text" name="rangerName">
                 <br>
                 <button type="submit" class="btn">Submit Report</button>
-                #end
+
             </form>
         </div>
         <div class="col-lg-6">
             <h2>Non-Endangered Animal Sighting</h2>
-            <form action="/sighting" method="post">
-                #if($animals.size() >= 0)
-                <label>Select Animal</label>
-                &emsp;<select name="animalSelected">
-                #foreach($animal in $animals)
-                <option value="$animal.getId()">$animal.getName()</option>
-                #end
-            </select>
+            <form action="/animals/sightings/new" method="post">
+                {{#if animals}}
+                    <label>Select Endangered Animal</label>
+                <select name="animalSelected">
+                    {{#each animals}}
+                        <option value={{id}}>{{name}}</option>
+                    {{/each}}
+                    </select>
+
+                {{/if}}
+
                 </br>
                 <label>Location</label>
-                &emsp;<input type="text" name="latLong">
+                &emsp;<input type="text" name="location">
                 </br>
                 <label>Your Name</label>
                 &emsp;<input type="text" name="rangerName">
                 </br>
                 <button type="submit" class="btn">Submit Report</button>
-                #end
+
             </form>
         </div>
     </div>
