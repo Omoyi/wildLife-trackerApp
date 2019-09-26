@@ -10,10 +10,10 @@
     </nav>
     <div class="form">
         <center>
-            <h1>Add Animal to Database</h1><br>><hr style="border: 2px solid orange; width: 50%;" >
-            <form class="wrapper" action="/animal/new" method="post">
-                <label>Animal Species</label>
-                <input type="text" name="name"><br>
+            <h1>Add Animal to Database</h1><br><hr style="border: 2px solid orange; width: 50%;" >
+            <form class="jumbotron" action="/animal/new" method="post">
+                <label>Animal</label><br>
+                <input style="border-radius" type="text" name="name"><br>
                 <label>Endangered?</label>
                 <input type="checkbox" name="endangered"><br>
                 <button type="submit" class="btn">Add Animal</button>
@@ -29,7 +29,10 @@
            background-color: wheat;
         }
         form {
-
+           width: 50%;
+           opacity: 0.8;
+           border-top-left-radius: 37px;
+           border-top-right-radius: 37px;
         }
         h1 {
             color: white;
