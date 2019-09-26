@@ -10,12 +10,12 @@
     </nav>
     <div class="form">
         <center>
-            <h1>Add Animal to Database</h1>
-            <form action="/animal/new" method="post">
+            <h1>Add Animal to Database</h1><br>><hr style="border: 2px solid orange; width: 50%;" >
+            <form class="wrapper" action="/animal/new" method="post">
                 <label>Animal Species</label>
-                <input type="text" name="name">
+                <input type="text" name="name"><br>
                 <label>Endangered?</label>
-                <input type="checkbox" name="endangered">
+                <input type="checkbox" name="endangered"><br>
                 <button type="submit" class="btn">Add Animal</button>
             </form>
         </center>
@@ -25,8 +25,17 @@
         body {
            background-image: url(https://images.pexels.com/photos/39629/tiger-tiger-baby-tigerfamile-young-39629.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
         }
+        .form {
+           background-color: wheat;
+        }
         form {
-           
+
+        }
+        h1 {
+            color: white;
+            text-shadow: 2px 2px 4px #000000;
+            font-size: 90px;
+            font-family: 'Amatic SC', cursive;
         }
     </style>
 {{/partial}}
