@@ -1,0 +1,74 @@
+{{#partial "content"}}
+    <body>
+    <div class="main">
+        <nav class="nav-bar">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/add/new"> Add Animal </a></li>
+                <li><a href="/form"> All Animals</a></li>
+                <li><a href="/animals">post Sighting</a></li>
+
+            </ul>
+        </nav>
+    </div>
+    <style>
+     body{
+    background-image: url(https://wallpapercave.com/wp/pLNajY7.jpg);
+    background-repeat:no-repeat;
+    background-size:cover;
+    font-family: 'Lobster Two', cursive;
+     }
+     .main{
+       margin: 50px;
+       background-color:white;
+       border: 2px solid #5D4D49;
+     }
+     .nav-bar{
+       word-spacing: 40px;
+       font-size: 20px;
+       font-family: 'Poiret One', cursive;
+     }
+     .nav-bar ul li a{
+       text-decoration: none;
+       color: black;
+     }
+     .nav-bar ul li{
+       display: inline-block;
+       -webkit-transition: border 1s, border-radius 1s, padding 1s, background-color 1s, color 1s;
+     }
+     .nav-bar ul li:hover{
+       border-bottom: 2px solid gray;
+       border-radius: 10%;
+       padding: 10px;
+        background-color:#737CA1;
+       color: white;
+     }
+     </style>
+
+<div class="well" style="text-align:center">
+
+    {{#if endangeredAnimalSelected}}
+
+        {{#each endangeredAnimalSelected}}
+            <div class="well">
+
+                <p>Location:
+                    {{ location}}</p>
+                <p>
+                    Ranger name:{{ ranger}}</p>
+                <p>Id of animal:{{animalId}}</p>
+                <p>date seen:{{date}}</p>
+            </div>
+
+        {{/each}}
+        <br>
+
+    {{else}}
+        <p>No  sightings!</p>
+    {{/if}}
+</div>
+</body>
+
+
+{{/partial}}
+{{> layout.hbs}}

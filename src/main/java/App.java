@@ -35,22 +35,6 @@ public class App {
       return new ModelAndView(model, "bad-request.hbs");
     }, new HandlebarsTemplateEngine());
 
-//    post("/animals/new-endangered",(request, response) -> {
-//      Map<String, Object> model = new HashMap<String, Object>();
-//      String animalName = request.queryParams("animal-name");
-//      String animalHealth = request.queryParams("animal-health");
-//      String animalAge = request.queryParams("animal-age");
-//      EndangeredAnimal newAnimal = new EndangeredAnimal(animalName, animalHealth, animalAge);
-//      try {
-//        newAnimal.checkFields();
-//        newAnimal.save();
-//      } catch(InvalidParameterException ipe) {
-//        request.session().attribute("message", ipe.getMessage());
-//        response.redirect("/notFound");
-//      }
-//      response.redirect("/animals/" + newAnimal.getId());
-//      return new ModelAndView(model, "allAnimals.hbs");
-//    }, new HandlebarsTemplateEngine());
 
 
 //.............................................................................................
@@ -105,12 +89,25 @@ public class App {
 
     post("/animals/sightings/new",(request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
-      String sightingRanger = request.queryParams("rangerName");
-      int sightingAnimalId = Integer.parseInt(request.queryParams("animalSelected"));
+      String Ranger = request.queryParams("rangerName");
+      int AnimalId = Integer.parseInt(request.queryParams("animalSelected"));
       String sightingLocation = request.queryParams("location");
-      Sighting newSighting = new Sighting(sightingLocation, sightingRanger, sightingAnimalId);
+      Sighting newSighting = new Sighting(sightingLocation, Ranger, AnimalId);
       newSighting.save();
       response.redirect("/allAnimals");
+
+
+//      post("/endangered_sighting",(request, response) -> {
+//        Map<String, Object> model = new HashMap<String, Object>();
+//        String animalName = request.queryParams("name");
+//        String animalHealth = request.queryParams("health");
+//        String animalAge = request.queryParams("age");
+//        EndangeredAnimal newAnimal = new EndangeredAnimal();
+//
+//        response.redirect("/animals/" + newAnimal.getId());
+//        return new ModelAndView(model, "allAnimals.hbs");
+//      }, new HandlebarsTemplateEngine());
+
 
       return new ModelAndView(model, "layout.hbs");
     }, new HandlebarsTemplateEngine());
@@ -119,7 +116,7 @@ public class App {
           Map<String, Object> model = new HashMap<String, Object>();
           Animal animals = Animal.find(Integer.parseInt(request.params("id")));
           model.put("animals", animals);
-          return new ModelAndView(model, "index4.hbs");
+          return new ModelAndView(model, "animalDetail.hbs");
       }, new HandlebarsTemplateEngine());
 
 
@@ -131,7 +128,7 @@ public class App {
 
           model.put("sightings", sightings);
 
-          return new ModelAndView(model, "index4.hbs");
+          return new ModelAndView(model, "animalDetail.hbs");
       }, new HandlebarsTemplateEngine());
 
   }
