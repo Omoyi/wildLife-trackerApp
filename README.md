@@ -8,10 +8,6 @@
 
 This is a simple java application that allows Rangers to track wildlife sightings in a given area and tracks wildlife categories such as all the animals and the endangered ones.
 
-### A little bit about how my app looks like
-
-![homepage](src/main/resources/public/img1.png)
-![Adding animal](src/main/resources/public/img2.png)
 ### Technologies used
 
 * JAVA 
@@ -33,10 +29,6 @@ This is a simple java application that allows Rangers to track wildlife sighting
   * CREATE DATABASE wildlife_tracker_test WITH TEMPLATE wildlife_tracker
   * CREATE TABLE animals (id serial PRIMARY KEY, name varchar, health varchar, age varchar, endangered boolean)
   * CREATE TABLE sightings (id serial PRIMARY KEY, location varchar, rangerName varchar)
-  
-## contacts
-
-urakhel7@gmail.com
   
   
 ## LICENSE

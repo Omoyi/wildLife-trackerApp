@@ -34,9 +34,7 @@ public class Sighting {
     return animalId;
   }
 
-  public Timestamp getDateTime() {
-    return dateTime;
-  }
+
 
   public void checkFields() {
     if(rangerName.equals("") || location.equals("")) {
@@ -70,7 +68,7 @@ public class Sighting {
 
   public static Sighting find(int id) {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "SELECT * FROM sightings WHERE id = :id";
+      String sql = "SELECT * FROM sightings WHERE animalId = :id";
       return con.createQuery(sql)
         .addParameter("id", id)
         .executeAndFetchFirst(Sighting.class);
