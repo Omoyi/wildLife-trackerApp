@@ -1,14 +1,16 @@
 {{#partial "content"}}
 <body>
-<nav class="navbar navbar-light">
-    <ol class="breadcrumb">
-        <li><a href="/">Home</a></li>
-        <li><a href="/animal/new">Add Animal</a></li>
-        <li class="active">All Animals</li>
-        <li><a href="/sighting">Post Sighting</a></li>
-    </ol>
-</nav>
+<div class="navbar">
+    <nav class="nav-bar">
+        <ul>
+            <li><a href="/">HOME</a></li>
+            <li><a href="/animal/new">ADD ANIMAL</a></li>
+            <li><a href="/allAnimals">ALL ANIMALS</a></li>
+            <li><a href="/sighting">POST SIGHTING</a></li>
 
+        </ul>
+    </nav>
+</div>
 <div class="row">
     <div class="col-sm-6">
         <h3 style="text-align:center">Endangered Animals</h3><br>
@@ -30,17 +32,20 @@
     <div class="col-sm-6">
         <h3 style="text-align:center">Non-Endangered Animals</h3><br>
         {{#if animals}}
-        <a href="/animal/new">Add Animal to Report a Sighting</a>
+        <a style="text-align: center;
+     color: #061806;" href="/animal/new">Add Animal to Report a Sighting</a>
 
         {{#each animals}}
         <div class="thumbnail">
             <center>
                 <h4>{{name}}</h4>
 
-                <a href="/animal/{{id}}">
+                <a style="text-align: center;
+     color: #061806;" href="/animal/{{id}}">
                     Click here for details
                 </a>
             </center>
+
         </div>
             {{/each}}
         {{/if}}
@@ -53,11 +58,39 @@
   }
 
   h3 {
-      color: wheat;
+      color: purple;
       font-size: 50px;
       text-shadow: 4px 4px 5px green;
-      text-align: center;
+
   }
+
+  .navbar{
+       margin: 50px;
+       text-align: center;
+     }
+     .nav-bar{
+       font-size: 20px;
+       text-shadow: 4px 4px 5px black;
+       font-family: 'Poiret One', cursive;
+     }
+     .nav-bar ul li a{
+       text-decoration: none;
+       color: white;
+       margin-left: 40px;
+       text-align: center;
+     }
+     .nav-bar ul li{
+       display: inline-block;
+       text-align: center;
+       -webkit-transition: border 1s, border-radius 1s, padding 1s, background-color 1s, color 1s;
+     }
+     .nav-bar ul li:hover{
+       text-align: center;
+       margin-left: 30px;
+       border-bottom: 2px solid gray;
+       border-radius: 10%;
+       padding: 10px;
+     }
 </style>
 {{/partial}}
 {{> layout.hbs}}
