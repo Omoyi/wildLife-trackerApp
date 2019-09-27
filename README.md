@@ -9,7 +9,7 @@
 This is a simple java application that allows Rangers to track wildlife sightings in a given area and tracks wildlife categories such as all the animals and the endangered ones.
 
 
-### A little bit about how my page looks like
+### A little bit about how my app looks like
 
 ![homepage](src/main/resources/public/img1.png)
 ![Adding animal](src/main/resources/public/img2.png)
