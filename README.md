@@ -17,6 +17,9 @@ This is a simple java application that allows Rangers to track wildlife sighting
 * Junit
 * Postgres SQL (Database)
 
+## contacts
+
+**urakhel7@gmail.com**
 
 ## Installation tips/ Setup instruction
 
@@ -29,9 +32,14 @@ This is a simple java application that allows Rangers to track wildlife sighting
   * CREATE DATABASE wildlife_tracker_test WITH TEMPLATE wildlife_tracker
   * CREATE TABLE animals (id serial PRIMARY KEY, name varchar, health varchar, age varchar, endangered boolean)
   * CREATE TABLE sightings (id serial PRIMARY KEY, location varchar, rangerName varchar)
+ 
+ 
+## A Little bit about how my project looks like
+
+![Homepage](src/main/resources/public/img1.png)
+![Add animals](src/main/resources/public/img2.png)
   
-  
-## LICENSE
+## LICENSE 
 
 MIT License
 

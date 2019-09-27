@@ -1,0 +1,319 @@
+{{#partial "content" }}
+<body>
+    <div class="row">
+        <div class="col-sm-4">
+            <h3><a style="color: #D1E7D1;
+  text-shadow: 2px 2px 4px #000000; font-weight: 900;" href="/animal/new">ADD ANIMAL</a></h3>
+        </div>
+        <div class="col-sm-4">
+            <h3><a style="color: #051305;
+  text-shadow: 2px 2px 4px #000001;; font-weight: 700;" href="/allAnimals">AVAILABLE ANIMALS</a></h3>
+        </div>
+        <div class="col-sm-4">
+            <h3><a style="color: #D1E7D1;
+  text-shadow: 2px 2px 4px #000000; font-weight: 700;" href="/sighting">POST SIGHTING</a></h3>
+        </div>
+    </div><br><br>
+    <div class="header">
+        <span class="letter" data-letter="WILDLIFE">WILDLIFE </span><h1>TRACKER</h1>
+    </div>
+    <ul class="menu">
+        <li class="menu_list">
+             <span class="front fas fa-home"></span>
+             <a  href="/details" class="side">Details</a>
+         </li>
+        <li class="menu_list">
+             <span class="front fas fa-info"></span>
+             <a href="/allAnimals" class="side">Animals</a>
+        </li>
+        <li class="menu_list">
+            <span class="front fas fa-briefcase"></span>
+            <a href="/sighting" class="side">Post</a>
+        </li>
+    </ul>
+
+    <article class="container">
+        <blockquote>
+            <strong style="color: goldenrod;">Protection</strong> is <em>more important</em> than <strong style="color: white;">Fame</strong>
+        </blockquote>
+        <b style="color: white;">Rachel, U.</b>
+    </article>
+    <hr style="margin-bottom: 50px;">
+    <div class="footer">
+        <h4>Copyright&copy;2019 Rachel | urakhel7@gmail.com<h4>
+    </div>
+</body>
+<style>
+
+   h3 {
+       font-family: 'Montserrat', sans-serif;
+       text-align:center;
+   }
+
+   h4 {
+      display: block;
+    color: #061806;
+   }
+
+   body {
+      background-image: url(https://nikcollection-cdn.dxo.com/wp-content/uploads/2019/06/color-efex-elephant-3.jpg);
+      background-size: 1690px;
+   }
+
+   ul {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    margin-bottom: 100px;
+}
+ul.menu {
+    display: inline-block;
+    list-style-type: none;
+}
+li.menu_list {
+    height: 170px;
+    width: 85px;
+    position: relative;
+}
+li.menu_list .front,
+a.side {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 60px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all .5s ease-out;
+    cursor: pointer;
+}
+li.menu_list .front {
+    background-color: #061806;
+    color: #FFFC00;
+    transform-origin: 0 0;
+}
+a.side {
+    background-color: #FFFC00;
+    color: #34465d;
+    transform-origin: 0 0 85px;
+    transform: rotateY(-90deg);
+}
+li.menu_list:hover a.side {
+    transform: rotateY(0deg);
+}
+li.menu_list:hover .front {
+    transform: rotateY(90deg);
+}
+
+a:hover {
+
+   color: #051305;
+}
+
+h1 {
+    font-family: 'Lato', sans-serif;
+    display: block;
+    color: #061806;
+    text-align: center;
+    font-size: 100px;
+    font-weight: 600;
+}
+
+ div {
+     margin: 0 auto;
+     margin-left: auto;
+     margin-right: auto;
+     text-align: center;
+ }
+ @font-face {
+    font-family: 'Sketch Block';
+    src: url('http://tangledindesign.com/codepen/fonts/sketch_block-webfont.eot');
+    src: url('http://tangledindesign.com/codepen/fonts/sketch_block-webfont.eot?#iefix') format('embedded-opentype'),
+         url('http://tangledindesign.com/codepen/fonts/sketch_block-webfont.woff') format('woff'),
+         url('http://tangledindesign.com/codepen/fonts/sketch_block-webfont.ttf') format('truetype'),
+         url('http://tangledindesign.com/codepen/fonts/sketch_block-webfont.svg#SketchBlockBold') format('svg');
+}
+
+@font-face {
+    font-family: 'Museo 700';
+    src: url('http://tangledindesign.com/codepen/fonts/Museo700-Regular-webfont.eot');
+    src: url('http://tangledindesign.com/codepen/fonts/Museo700-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('http://tangledindesign.com/codepen/fonts/Museo700-Regular-webfont.woff') format('woff'),
+         url('http://tangledindesign.com/codepen/fonts/Museo700-Regular-webfont.ttf') format('truetype'),
+         url('http://tangledindesign.com/codepen/fonts/Museo700-Regular-webfont.svg#SketchBlockBold') format('svg');
+}
+
+@font-face {
+    font-family: 'CallunaRegular';
+    src: url('http://tangledindesign.com/codepen/fonts/Calluna-Regular-webfont.eot');
+    src: url('http://tangledindesign.com/codepen/fonts/Calluna-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('http://tangledindesign.com/codepen/fonts/Calluna-Regular-webfont.woff') format('woff'),
+         url('http://tangledindesign.com/codepen/fonts/Calluna-Regular-webfont.ttf') format('truetype'),
+         url('http://tangledindesign.com/codepen/fonts/Calluna-Regular-webfont.svg#CallunaRegular') format('svg');
+}
+
+    .container {
+        width: 590px;
+        float: right;
+        position: relative;
+        margin-right: 20%;
+    }
+
+    blockquote {
+        width: 565px;
+        font: 2.65em CallunaRegular;
+        letter-spacing: .075em;
+        float: left;
+        padding: 45px 0 30px 25px;
+        margin: 0;
+        border-top: 2px dotted #858585;
+        border-bottom: 2px dotted #858585;
+        -webkit-transform: rotate(-3deg);
+        -moz-transform: rotate(-3deg);
+    }
+
+    .container:before {
+        content: "“";
+        font-size: 13em;
+        position: absolute;
+        left: -100px;
+        color: #666;
+    }
+
+    .container:after {
+        content: "”";
+        font-size: 13em;
+        position: absolute;
+        right: -100px;
+        top: 150px;
+        color: #666;
+    }
+
+        blockquote:first-line {
+            font: 1.85em "Sketch Block";
+            color: #fff79e;
+        }
+
+        blockquote:first-letter {
+            font-size: 2.9em;
+            text-transform: lowercase;
+            float: left;
+            line-height: .52em;
+            margin-right: -18px;
+            position: relative;
+            z-index: 1;
+        }
+
+        blockquote strong:first-child {
+            margin-left: 8px;
+            letter-spacing: 0;
+        }
+
+        blockquote strong:last-child {
+            font: 2em "Museo 700";
+            text-transform: uppercase;
+            letter-spacing: 0;
+        }
+
+        blockquote em {
+            border-bottom: 2px dotted #858585;
+        }
+
+        blockquote + b {
+            float: right;
+            margin-top: 10px;
+            font: 1.6em CallunaRegular;
+            letter-spacing: .15em;
+        }
+
+        blockquote + b:first-letter {
+            color: #fff79e;
+            font-size: 1.3em;
+            font-style: italic;
+            letter-spacing: .25em;
+        }
+
+        @-moz-document url-prefix() {
+
+            blockquote:first-letter {
+                margin-top: -29px;
+            }
+
+        }
+
+
+.header{
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+}
+.letter{
+  display: inline-block;
+  font-weight: 900;
+  font-size: 8em;
+<!--  margin: 0.2em;-->
+  position: relative;
+  color: #061806;
+  transform-style: preserve-3d;
+  perspective: 400;
+  z-index: 1;
+}
+.letter:before, .letter:after{
+  position:absolute;
+  content: attr(data-letter);
+  transform-origin: top left;
+  top:0;
+
+}
+.letter, .letter:before, .letter:after{
+  transition: all 0.3s ease-in-out;
+}
+.letter:before{
+  color: #fff;
+  text-shadow:
+    -1px 0px 1px rgba(255,255,255,.8),
+    1px 0px 1px rgba(0,0,0,.8);
+  z-index: 3;
+  transform:
+    rotateX(0deg)
+    rotateY(-15deg)
+    rotateZ(0deg);
+}
+.letter:after{
+  color: rgba(0,0,0,.11);
+  z-index:2;
+  transform:
+    scale(1.08,1)
+    rotateX(0deg)
+    rotateY(0deg)
+    rotateZ(0deg)
+    skew(0deg,1deg);
+}
+.letter:hover:before{
+  color: #fafafa;
+  transform:
+    rotateX(0deg)
+    rotateY(-40deg)
+    rotateZ(0deg);
+}
+.letter:hover:after{
+  transform:
+    scale(1.08,1)
+    rotateX(0deg)
+    rotateY(40deg)
+    rotateZ(0deg)
+    skew(0deg,22deg);
+}
+
+.footer {
+    margin-bottom: 2%;
+}
+
+</style>
+{{/partial}}
+
+{{> layout.hbs}}

@@ -1,0 +1,15 @@
+{{#partial "content"}}
+
+<div class="col-md-4 col-md-offset-4 well text-center">
+  <h1>Oops!</h1>
+  <h4>We ran into an issue.</h4>
+  #if($message)
+    <h4>$message</h4>
+  #end
+
+  <a href="/" class="btn btn-primary">Back home</a>
+</div>
+
+{{/partial}}
+
+{{> layout.hbs}}

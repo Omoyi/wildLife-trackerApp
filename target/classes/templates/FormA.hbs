@@ -1,0 +1,93 @@
+{{#partial "content"}}
+ <body>
+     <div class="container-fluid">
+        <ul >
+            <li><a href="/">Home</a></li>
+            <li style="font-family: 'Syncopate', sans-serif;" class="active">Add Animal</li>
+            <li><a href="/allAnimals">All Animals</a></li>
+            <li><a href="/sighting">Post Sighting</a></li>
+        </ul>
+     </div>
+    <div class="form">
+        <center>
+            <h1>Add Animal to the List</h1><br><hr style="border: 2px solid orange; width: 50%;" >
+            <form class="jumbotron" action="/animal/new" method="post">
+                <label>Animal</label><br>
+                <input style="border-radius" type="text" name="name"><br>
+                <label>Endangered?</label><br>
+                <input type="checkbox" name="endangered"><br>
+                <button style="font-size: 22px;" type="submit" class="btn btn-dark">Add animal</button>
+            </form>
+        </center>
+    </div>
+ </body>
+    <style>
+        body {
+           background-image: url(https://images.pexels.com/photos/39629/tiger-tiger-baby-tigerfamile-young-39629.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+        }
+        .form {
+           background-color: wheat;
+        }
+        form {
+           width: 50%;
+           opacity: 0.7;
+           background-color: bisque !important;
+           border-top-left-radius: 37px;
+           border-top-right-radius: 37px;
+        }
+        h1 {
+            color: white;
+            text-shadow: 2px 2px 4px #000000;
+            font-size: 90px;
+            font-family: 'Amatic SC', cursive;
+        }
+        label {
+            font-family: 'Mansalva', cursive;
+            font-size: 25px;
+        }
+
+        button {
+           padding: 50px;
+           background-color: white;
+           font-family: 'Amatic SC', cursive;
+        }
+
+        button:hover {
+             border-radius: 50px;
+             background-color: tomato;
+             color: goldenrod;
+        }
+
+        ul li {
+              display: inline;
+              text-align: center;
+        }
+        .container-fluid {
+             font: 300 100% 'Helvetica Neue', Helvetica, Arial;
+             width: 80%;
+             margin: 0 auto;
+         }
+        a {
+            display: inline-block;
+            width: 25%;
+            padding: .75rem 0;
+            margin: 0;
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            font-size: 20px;
+            font-family: 'Syncopate', sans-serif;
+        }
+
+        .active {
+          font-size: 20px;
+        }
+
+        a:hover{
+           text-decoration: none;
+           color: rgb(99, 53, 1);
+        }
+
+     </style>
+{{/partial}}
+{{>layout.hbs}}
